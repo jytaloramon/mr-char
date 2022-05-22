@@ -4,6 +4,6 @@ import java.io.IOException;
 
 public interface IChatCommunicationSend {
 
-    public void runSend(String content) throws IOException;
+    public void runSend(Message message) throws IOException;
 
 }

@@ -4,6 +4,6 @@ import java.io.IOException;
 
 public interface IChatCommunicationReceive {
 
-    public String runReceive() throws IOException;
+    public Message runReceive() throws IOException, ClassNotFoundException;
 
 }
