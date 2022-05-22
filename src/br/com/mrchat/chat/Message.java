@@ -13,5 +13,11 @@ public class Message implements Serializable {
     public String getContent() {
         return content;
     }
+
+    @Override
+    public String toString() {
+        return this.content;
+    }
+
     
 }

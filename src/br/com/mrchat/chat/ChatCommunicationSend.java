@@ -5,7 +5,7 @@ import java.io.ObjectOutputStream;
 
 public class ChatCommunicationSend implements IChatCommunicationSend {
 
-    private ObjectOutputStream outputStream;
+    private final ObjectOutputStream outputStream;
 
     public ChatCommunicationSend(ObjectOutputStream outputStream) {
         this.outputStream = outputStream;
