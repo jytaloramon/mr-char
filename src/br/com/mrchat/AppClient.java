@@ -7,14 +7,15 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-import br.com.mrchat.chat.Message;
-import br.com.mrchat.socket.clientside.AppClientSocket;
+import br.com.mrchat.chat.clientside.IChatClient;
+import br.com.mrchat.chat.common.Message;
+import br.com.mrchat.socket.clientside.ClientChatSocket;
 
 public class AppClient {
 
     public static void main(String[] args) throws UnknownHostException, IOException, ClassNotFoundException {
 
-        AppClientSocket appClientSocket = new AppClientSocket("localhost", 5432);
+        IChatClient appClientSocket = new ClientChatSocket("localhost", 5432);
 
     }
 

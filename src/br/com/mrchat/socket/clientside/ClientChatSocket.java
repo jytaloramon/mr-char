@@ -8,22 +8,23 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 import br.com.mrchat.chat.clientside.IChatClient;
+import br.com.mrchat.chat.common.Message;
 
-public class AppClientSocket implements IChatClient {
+public class ClientChatSocket implements IChatClient {
 
     private final Socket socket;
 
-    public AppClientSocket(String host, int port) throws UnknownHostException, IOException {
+    public ClientChatSocket(String host, int port) throws UnknownHostException, IOException {
 
         this.socket = new Socket(host, port);
 
         ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
 
-        System.out.println("Chat iniciado");
+        System.out.println("------ Chat iniciado ------");
 
-        Thread threadReceive = new Thread(new ClientSocketReceiveThread(inputStream)),
-                threadSend = new Thread(new ClientSocketSendThread(outputStream));
+        Thread threadReceive = new Thread(new ClientChatSocketReceiveThread(inputStream)),
+                threadSend = new Thread(new ClientChatSocketSendThread(outputStream));
 
         threadSend.start();
         threadReceive.start();

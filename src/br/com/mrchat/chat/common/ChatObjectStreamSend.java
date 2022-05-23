@@ -1,13 +1,13 @@
-package br.com.mrchat.chat;
+package br.com.mrchat.chat.common;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-public class ChatCommunicationSend implements IChatCommunicationSend {
+public class ChatObjectStreamSend implements IChatStreamSend {
 
     private final ObjectOutputStream outputStream;
 
-    public ChatCommunicationSend(ObjectOutputStream outputStream) {
+    public ChatObjectStreamSend(ObjectOutputStream outputStream) {
         this.outputStream = outputStream;
     }
 

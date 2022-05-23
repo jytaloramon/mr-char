@@ -3,11 +3,11 @@ package br.com.mrchat.socket.clientside;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-import br.com.mrchat.chat.ChatCommunicationReceive;
+import br.com.mrchat.chat.common.ChatObjectStreamReceive;
 
-public class ClientSocketReceiveThread extends ChatCommunicationReceive implements Runnable {
+public class ClientChatSocketReceiveThread extends ChatObjectStreamReceive implements Runnable {
 
-    public ClientSocketReceiveThread(ObjectInputStream inputStream) {
+    public ClientChatSocketReceiveThread(ObjectInputStream inputStream) {
         super(inputStream);
     }
 
@@ -17,8 +17,8 @@ public class ClientSocketReceiveThread extends ChatCommunicationReceive implemen
             try {
                 System.out.println("> " + this.runReceive());
             } catch (ClassNotFoundException | IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                System.out.println("Saindo...");
+                break;
             }
         }
     }

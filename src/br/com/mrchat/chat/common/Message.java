@@ -1,4 +1,4 @@
-package br.com.mrchat.chat;
+package br.com.mrchat.chat.common;
 
 import java.io.Serializable;
 

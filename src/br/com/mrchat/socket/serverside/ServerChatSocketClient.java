@@ -7,41 +7,44 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-import br.com.mrchat.chat.ChatCommunicationReceive;
-import br.com.mrchat.chat.ChatCommunicationSend;
+import br.com.mrchat.chat.common.ChatObjectStreamReceive;
+import br.com.mrchat.chat.common.ChatObjectStreamSend;
+import br.com.mrchat.chat.common.Message;
 
-public class ClientServerSocket {
+public class ServerChatSocketClient {
 
     private final Socket socket;
-    private final AppServerSocket owner;
+    private final ServerChatSocket owner;
     private final ObjectInputStream inputStream;
     private final ObjectOutputStream outputStream;
 
     private final Thread receiveThread;
-    private final ChatCommunicationSend send;
+    private final ChatObjectStreamSend send;
 
     // private final Thread
 
-    public ClientServerSocket(Socket socket, AppServerSocket owner) throws IOException {
+    public ServerChatSocketClient(Socket socket, ServerChatSocket owner) throws IOException, ClassNotFoundException {
 
         this.socket = socket;
         this.owner = owner;
 
         InputStream ipS = this.socket.getInputStream();
         OutputStream otS = this.socket.getOutputStream();
-
         this.outputStream = new ObjectOutputStream(otS);
         this.inputStream = new ObjectInputStream(ipS);
 
         this.receiveThread = new Thread(
-                new ClientServerSocketReceiveThread(this.socket.getPort(),
-                        new ChatCommunicationReceive(this.inputStream), this.owner));
+                new ServerChatSocketClientReceiveThread(this.socket.getPort(),
+                        new ChatObjectStreamReceive(this.inputStream), this.owner));
 
-        this.send = new ChatCommunicationSend(this.outputStream);
+        this.send = new ChatObjectStreamSend(this.outputStream);
         this.receiveThread.start();
+
+        System.out.println("+ Client " + socket.getPort() + " ENTROU");
+
     }
 
-    public ChatCommunicationSend getSend() {
+    public ChatObjectStreamSend getSend() {
         return send;
     }
 

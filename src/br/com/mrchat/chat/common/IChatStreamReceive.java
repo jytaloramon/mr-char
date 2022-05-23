@@ -1,8 +1,8 @@
-package br.com.mrchat.chat;
+package br.com.mrchat.chat.common;
 
 import java.io.IOException;
 
-public interface IChatCommunicationReceive {
+public interface IChatStreamReceive {
 
     public Message runReceive() throws IOException, ClassNotFoundException;
 

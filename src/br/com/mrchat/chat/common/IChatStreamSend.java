@@ -1,8 +1,8 @@
-package br.com.mrchat.chat;
+package br.com.mrchat.chat.common;
 
 import java.io.IOException;
 
-public interface IChatCommunicationSend {
+public interface IChatStreamSend {
 
     public void runSend(Message message) throws IOException;
 
