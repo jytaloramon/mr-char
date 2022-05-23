@@ -1,6 +1,7 @@
 package br.com.mrchat.socket.serverside;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
@@ -13,15 +14,18 @@ public class ServerChatSocket implements IChatServer {
     private final ServerSocket serverSocket;
     private final HashMap<Integer, ServerChatSocketClient> clients;
 
-    public ServerChatSocket(int port) throws IOException {
+    public ServerChatSocket(InetAddress addr, int port, int backlog) throws IOException {
 
-        this.serverSocket = new ServerSocket(port);
+        this.serverSocket = new ServerSocket(port, backlog, addr);
+
         this.clients = new HashMap<>();
     }
 
     public void up() {
 
-        System.out.println("------ Server Up ------");
+        System.out.println("------ Server Up ("
+                + this.serverSocket.getInetAddress().getHostAddress() +
+                "[" + this.serverSocket.getLocalPort() + "]" + ") ------");
 
         while (true) {
             try {
