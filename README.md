@@ -2,20 +2,13 @@
 
 ## Chat usando sockets
 
-</br>
-</br>
-
 ### Implementação de um chat usando sockets
 
 * Trabalho em dupla
 * Linguagem de programação livre (em alguns casos, pedirei que me explique)
 * O chat poderá ser simples, onde os dois comunicantes enviam e recebem mensagens
 
-</br>
-
 ### Como Rodar o Projeto
-
-</br>
 
 #### Com Make (Linux)
 
