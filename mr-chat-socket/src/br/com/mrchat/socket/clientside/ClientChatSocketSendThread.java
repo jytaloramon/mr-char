@@ -2,6 +2,8 @@ package br.com.mrchat.socket.clientside;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import br.com.mrchat.chat.common.ChatObjectStreamSend;
@@ -16,6 +18,7 @@ public class ClientChatSocketSendThread extends ChatObjectStreamSend implements 
     @Override
     public void run() {
         Scanner sc = new Scanner(System.in);
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
         System.out.print("Digite seu nome: ");
         String name = sc.nextLine();
@@ -26,13 +29,13 @@ public class ClientChatSocketSendThread extends ChatObjectStreamSend implements 
             e1.printStackTrace();
         }
 
-
         System.out.println("Seja bem vindo!\n");
 
         while (true) {
 
             String text = sc.nextLine();
-            Message message = new Message(name + " - " + text);
+            Message message = new Message(name + " - " + text
+                    + " [" + dateTimeFormatter.format(LocalTime.now()) + "]");
 
             try {
                 this.runSend(message);

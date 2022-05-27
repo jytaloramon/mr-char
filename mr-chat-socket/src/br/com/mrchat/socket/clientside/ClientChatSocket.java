@@ -2,13 +2,11 @@ package br.com.mrchat.socket.clientside;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
 import br.com.mrchat.chat.clientside.IChatClient;
-import br.com.mrchat.chat.common.Message;
 
 public class ClientChatSocket implements IChatClient {
 

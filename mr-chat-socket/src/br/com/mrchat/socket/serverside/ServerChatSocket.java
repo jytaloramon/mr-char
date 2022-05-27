@@ -23,9 +23,9 @@ public class ServerChatSocket implements IChatServer {
 
     public void up() {
 
-        System.out.println("------ Server Up ("
+        System.out.println("------ Server Socket Up ("
                 + this.serverSocket.getInetAddress().getHostAddress() +
-                "[" + this.serverSocket.getLocalPort() + "]" + ") ------");
+                ":" + this.serverSocket.getLocalPort() + ") ------");
 
         while (true) {
             try {
@@ -46,8 +46,7 @@ public class ServerChatSocket implements IChatServer {
             if (key != idCli) {
                 ServerChatSocketClient chatSocketClient = this.clients.get(key);
 
-                Message newMessage = message;
-                chatSocketClient.getSend().runSend(newMessage);
+                chatSocketClient.getSend().runSend(message);
             }
         }
     }
