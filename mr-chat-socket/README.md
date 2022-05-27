@@ -48,6 +48,6 @@
 6. Execute o(s) clientes(s):
    - **# java br.com.mrchat.AppClient**. **obs: execute vários em diferentes terminais**
 
-### Vídeo de Apresenção (Breve)
+### Vídeo de Apresentação (Breve)
 
 ![Vídeo de Apresenção](./imgs/Vídeo.gif)
