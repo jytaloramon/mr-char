@@ -1,7 +1,9 @@
 import proto.chat_pb2 as chat
 import proto.chat_pb2_grpc as rpc
 
-class ChatServer(rpc.ChatServerServicer):  # inheriting here from the protobuf rpc file which is generated
+
+# inheriting here from the protobuf rpc file which is generated
+class ChatServer(rpc.ChatServerServicer):
 
     def __init__(self):
         self.__chats = []
@@ -16,8 +18,7 @@ class ChatServer(rpc.ChatServerServicer):  # inheriting here from the protobuf r
                 yield n
 
     def SendNote(self, request: chat.Note, context):
-       
-        # Add it to the chat history
-        self.__chats.append(request)
-        return chat.Empty()  # something needs to be returned required by protobuf language, we just return empty msg
 
+        self.__chats.append(request)
+        print(f'Msgs: {request.name} - {request.message}')
+        return chat.Empty()
