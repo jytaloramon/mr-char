@@ -26,3 +26,6 @@
 3. Execute o servidor: **# python main_server.py**
 4. Execute o(s) clientes(s): **# python main_client.py**. **obs: execute vários em diferentes terminais**
 
+### Vídeo de Apresenção (Breve)
+
+![Vídeo de Apresenção](./imgs/Vídeo.gif)
